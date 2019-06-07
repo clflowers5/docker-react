@@ -1,0 +1,15 @@
+FROM node:alpine
+
+WORKDIR '/app'
+
+COPY package.json .
+
+RUN npm install
+
+COPY . .
+
+CMD ["npm", "run", "start"]
+
+# docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app 0bd7178cf848S
+# -v manages volumes, first says to "not map this folder", second is actual mapping
+# docker exec -it 1f23e6d83674 npm run test
